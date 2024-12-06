@@ -5083,8 +5083,11 @@ You're not viewing the latest version.
 </blockquote>
 <h3 id="installation">🛠️ Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
 <blockquote>
-<p>❗Before installing PaddleX, please ensure you have a basic <strong>Python environment</strong> (Note: Currently supports Python 3.8 to Python 3.10, with more Python versions being adapted).
-* <strong>Installing PaddlePaddle</strong>
+<p>❗Before installing PaddleX, please ensure you have a basic <strong>Python environment</strong> (Note: Currently supports Python 3.8 to Python 3.10, with more Python versions being adapted).</p>
+</blockquote>
+<ul>
+<li><strong>Installing PaddlePaddle</strong></li>
+</ul>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># cpu</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">paddlepaddle</span><span class="o">==</span><span class="m">3</span>.0.0b1<span class="w"> </span>-i<span class="w"> </span>https://www.paddlepaddle.org.cn/packages/stable/cpu/
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -5094,10 +5097,11 @@ You're not viewing the latest version.
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># gpu，该命令仅适用于 CUDA 版本为 12.3 的机器环境</span>
 </span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>paddlepaddle-gpu<span class="o">==</span><span class="m">3</span>.0.0b1<span class="w"> </span>-i<span class="w"> </span>https://www.paddlepaddle.org.cn/packages/stable/cu123/
 </span></code></pre></div>
-❗For more PaddlePaddle versions, please refer to the <a href="https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation./docs/zh/install/pip/linux-pip.html">PaddlePaddle official website</a>. 
+<blockquote>
+<p>❗For more PaddlePaddle versions, please refer to the <a href="https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation./docs/zh/install/pip/linux-pip.html">PaddlePaddle official website</a>. 
 * <strong>Installing PaddleX</strong></p>
 </blockquote>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>https://paddle-model-ecology.bj.bcebos.com/paddlex/whl/paddlex-3.0.0b1-py3-none-any.whl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">paddlex</span><span class="o">==</span><span class="m">3</span>.0.0b2
 </span></code></pre></div>
 <blockquote>
 <p>❗For more installation methods, refer to the <a href="https://github.com/PaddlePaddle/PaddleX/blob/release/3.0-beta1/docs/installation/installation_en.md">PaddleX Installation Guide</a>.</p>
@@ -5133,32 +5137,32 @@ The following steps are executed:</p>
 <tr>
 <td>PP-ChatOCRv3-doc</td>
 <td><code>PP-ChatOCRv3-doc</code></td>
-<td><a href="https://github.com/PaddlePaddle/PaddleX/blob/release/3.0-beta1/docs/pipeline_usage/tutorials/information_extraction_pipelines/document_scene_information_extraction_en.md">Python Script Usage for PP-ChatOCRv3-doc Pipeline</a></td>
+<td><a href="https://paddlepaddle.github.io/PaddleX/latest/en/pipeline_usage/tutorials/information_extraction_pipelines/document_scene_information_extraction.html">Python Script Usage for PP-ChatOCRv3-doc Pipeline</a></td>
 </tr>
 <tr>
 <td>OCR</td>
 <td><code>OCR</code></td>
-<td><a href="https://github.com/PaddlePaddle/PaddleX/blob/release/3.0-beta1/docs/pipeline_usage/tutorials/ocr_pipelines/OCR_en.md#22-local-experience">Python Script Usage for General OCR Pipeline</a></td>
+<td><a href="https://paddlepaddle.github.io/PaddleX/latest/en/pipeline_usage/tutorials/ocr_pipelines/OCR.html">Python Script Usage for General OCR Pipeline</a></td>
 </tr>
 <tr>
 <td>Table Recognition</td>
 <td><code>table_recognition</code></td>
-<td><a href="https://github.com/PaddlePaddle/PaddleX/blob/release/3.0-beta1/docs/pipeline_usage/tutorials/ocr_pipelines/table_recognition_en.md#22-local-experience">Python Script Usage for Table Recognition Pipeline</a></td>
+<td><a href="https://paddlepaddle.github.io/PaddleX/latest/en/pipeline_usage/tutorials/ocr_pipelines/table_recognition.html">Python Script Usage for Table Recognition Pipeline</a></td>
 </tr>
 <tr>
 <td>Layout Parsing</td>
 <td><code>layout_parsing</code></td>
-<td><a href="https://github.com/PaddlePaddle/PaddleX/blob/release/3.0-beta1/docs/pipeline_usage/tutorials/ocr_pipelines/layout_parsing_en.md#22-local-experience">Python Script Usage for Layout Parsing Pipeline</a></td>
+<td><a href="https://paddlepaddle.github.io/PaddleX/latest/en/pipeline_usage/tutorials/ocr_pipelines/layout_parsing.html">Python Script Usage for Layout Parsing Pipeline</a></td>
 </tr>
 <tr>
 <td>Formula Recognition</td>
 <td><code>formula_recognition</code></td>
-<td><a href="https://github.com/PaddlePaddle/PaddleX/blob/release/3.0-beta1/docs/pipeline_usage/tutorials/ocr_pipelines/formula_recognition_en.md#2-quick-start">Python Script Usage for Formula Recognition Pipeline</a></td>
+<td><a href="https://paddlepaddle.github.io/PaddleX/latest/en/pipeline_usage/tutorials/ocr_pipelines/formula_recognition.html">Python Script Usage for Formula Recognition Pipeline</a></td>
 </tr>
 <tr>
 <td>Seal Recognition</td>
 <td><code>seal_recognition</code></td>
-<td><a href="https://github.com/PaddlePaddle/PaddleX/blob/release/3.0-beta1/docs/pipeline_usage/tutorials/ocr_pipelines/seal_recognition_en.md#2--quick-start">Python Script Usage for Formula Recognition Pipeline</a></td>
+<td><a href="https://paddlepaddle.github.io/PaddleX/latest/en/pipeline_usage/tutorials/ocr_pipelines/seal_recognition.html">Python Script Usage for Formula Recognition Pipeline</a></td>
 </tr>
 </tbody>
 </table>
