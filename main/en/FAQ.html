@@ -5843,7 +5843,7 @@ You're not viewing the latest version.
 
 <!-- Page content -->
 <blockquote>
-<p>🎉 <strong>Welcome to PaddleOCR FAQ!</strong><br />
+<p>🎉 <strong>Welcome to PaddleOCR FAQ!</strong>
 This document compiles common issues and solutions from GitHub Issues and Discussions, providing reference for OCR developers.</p>
 </blockquote>
 <h2 id="1-installation-and-environment-setup">1. Installation and Environment Setup<a class="headerlink" href="#1-installation-and-environment-setup" title="Permanent link">&para;</a></h2>
@@ -5854,10 +5854,12 @@ This document compiles common issues and solutions from GitHub Issues and Discus
 (2) Install with specific versions: <code>pip install paddleocr==3.2.0 --no-deps</code>, then install dependencies separately
 (3) If using conda, try: <code>conda install -c conda-forge paddleocr</code></p>
 <h4 id="q-gpu-environment-configuration-issues-cuda-version-mismatch">Q: GPU environment configuration issues, CUDA version mismatch<a class="headerlink" href="#q-gpu-environment-configuration-issues-cuda-version-mismatch" title="Permanent link">&para;</a></h4>
-<p><strong>A</strong>: First check CUDA version: <code>nvidia-smi</code>, then install corresponding PaddlePaddle version:
-- CUDA 11.8: <code>pip install paddlepaddle-gpu==3.0.0 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html</code>
-- CUDA 12.0: <code>pip install paddlepaddle-gpu==3.0.0 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html</code>
-Verify GPU availability: <code>python -c "import paddle; print(paddle.is_compiled_with_cuda())"</code></p>
+<p><strong>A</strong>: First check CUDA version: <code>nvidia-smi</code>, then install corresponding PaddlePaddle version:</p>
+<ul>
+<li>CUDA 11.8: <code>pip install paddlepaddle-gpu==3.0.0 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html</code></li>
+<li>CUDA 12.0: <code>pip install paddlepaddle-gpu==3.0.0 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html</code>
+Verify GPU availability: <code>python -c "import paddle; print(paddle.is_compiled_with_cuda())"</code></li>
+</ul>
 <h4 id="q-model-download-failed-or-slow-download">Q: Model download failed or slow download<a class="headerlink" href="#q-model-download-failed-or-slow-download" title="Permanent link">&para;</a></h4>
 <p><strong>A</strong>: Can be resolved by:
 (1) Set model download source: <code>os.environ['PADDLE_PDX_MODEL_SOURCE'] = 'BOS'</code> (use Baidu Cloud Storage)
@@ -5870,18 +5872,20 @@ Verify GPU availability: <code>python -c "import paddle; print(paddle.is_compile
 <h2 id="2-model-usage-and-configuration">2. Model Usage and Configuration<a class="headerlink" href="#2-model-usage-and-configuration" title="Permanent link">&para;</a></h2>
 <h3 id="21-model-selection">2.1 Model Selection<a class="headerlink" href="#21-model-selection" title="Permanent link">&para;</a></h3>
 <h4 id="q-how-to-choose-the-right-model">Q: How to choose the right model?<a class="headerlink" href="#q-how-to-choose-the-right-model" title="Permanent link">&para;</a></h4>
-<p><strong>A</strong>: Choose based on application scenario:
-- Server high accuracy: Use <code>PP-OCRv5_server</code> series, highest accuracy
-- Mobile deployment: Use <code>PP-OCRv5_mobile</code> series, small model fast speed
-- Real-time processing: Use <code>PP-OCRv5_mobile</code> series, fast inference speed
-- Batch processing: Use <code>PP-OCRv5_server</code> series, high accuracy
-- Multi-language recognition: Use <code>PP-OCRv5_multi_languages</code>, supports 37 languages</p>
+<p><strong>A</strong>: Choose based on application scenario:</p>
+<ul>
+<li>Server high accuracy: Use <code>PP-OCRv5_server</code> series, highest accuracy</li>
+<li>Mobile deployment: Use <code>PP-OCRv5_mobile</code> series, small model fast speed</li>
+<li>Real-time processing: Use <code>PP-OCRv5_mobile</code> series, fast inference speed</li>
+<li>Batch processing: Use <code>PP-OCRv5_server</code> series, high accuracy</li>
+<li>Multi-language recognition: Use <code>PP-OCRv5_multi_languages</code>, supports 37 languages</li>
+</ul>
 <h4 id="q-local-model-path-configuration-how-to-use-in-isolated-network-environment">Q: Local model path configuration, how to use in isolated network environment?<a class="headerlink" href="#q-local-model-path-configuration-how-to-use-in-isolated-network-environment" title="Permanent link">&para;</a></h4>
 <p><strong>A</strong>: Can be configured by:
 (1) Use local model path: specify <code>model_dir</code> parameter during initialization
 (2) Set model download source: <code>os.environ['PADDLE_PDX_MODEL_SOURCE'] = 'BOS'</code>
 (3) Manual model download: download models from official links and extract locally
-(4) Example code:
+(4) Example code:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">ocr</span> <span class="o">=</span> <span class="n">PaddleOCR</span><span class="p">(</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">det_model_dir</span><span class="o">=</span><span class="s1">&#39;./models/PP-OCRv5_server_det_infer/&#39;</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">rec_model_dir</span><span class="o">=</span><span class="s1">&#39;./models/PP-OCRv5_server_rec_infer/&#39;</span><span class="p">,</span>
@@ -5889,7 +5893,7 @@ Verify GPU availability: <code>python -c "import paddle; print(paddle.is_compile
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">use_angle_cls</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;ch&#39;</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h2 id="3-performance-optimization">3. Performance Optimization<a class="headerlink" href="#3-performance-optimization" title="Permanent link">&para;</a></h2>
 <h3 id="31-gpu-optimization">3.1 GPU Optimization<a class="headerlink" href="#31-gpu-optimization" title="Permanent link">&para;</a></h3>
 <h4 id="q-slow-gpu-inference-speed-how-to-optimize-performance">Q: Slow GPU inference speed, how to optimize performance?<a class="headerlink" href="#q-slow-gpu-inference-speed-how-to-optimize-performance" title="Permanent link">&para;</a></h4>
@@ -5913,7 +5917,7 @@ Verify GPU availability: <code>python -c "import paddle; print(paddle.is_compile
 (1) Use Flask deployment: create simple Web API service
 (2) Use gunicorn deployment: <code>gunicorn -w 4 -b 0.0.0.0:5000 app:app</code>
 (3) Use asynchronous processing: combine asyncio and ThreadPoolExecutor
-(4) Example code:
+(4) Example code:</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">paddleocr</span><span class="w"> </span><span class="kn">import</span> <span class="n">PaddleOCR</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -5925,7 +5929,7 @@ Verify GPU availability: <code>python -c "import paddle; print(paddle.is_compile
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">file</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">ocr</span><span class="o">.</span><span class="n">ocr</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="n">result</span><span class="p">})</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
 <h4 id="q-c-deployment-common-issues-and-solutions">Q: C++ deployment common issues and solutions?<a class="headerlink" href="#q-c-deployment-common-issues-and-solutions" title="Permanent link">&para;</a></h4>
 <p><strong>A</strong>: Common issues and solutions:
 (1) Cannot find dynamic library: set <code>export LD_LIBRARY_PATH=/path/to/paddle/lib:$LD_LIBRARY_PATH</code>
@@ -6066,7 +6070,7 @@ Recognizing artistic fonts in signs or advertising images is a very challenging 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="June 22, 2026 16:27:22 CST">2026-06-22 16:27:22</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="June 22, 2026 20:35:49 CST">2026-06-22 20:35:49</span>
   </span>
 
     
@@ -6076,7 +6080,7 @@ Recognizing artistic fonts in signs or advertising images is a very challenging 
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="June 22, 2026 16:27:22 CST">2026-06-22 16:27:22</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime" title="June 22, 2026 20:35:49 CST">2026-06-22 20:35:49</span>
   </span>
 
     
